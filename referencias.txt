@@ -1,0 +1,25 @@
+
+
+Angina => dor espasmódica, sufocante.
+Colocar Referências Médicas
+	https://litfl.com/st-segment-ecg-library/
+	https://www.getbodysmart.com/heart-anatomy/major-blood-vessels-heart
+	
+
+
+
+age                          int64
+sex                         object
+chest_pain_type             object
+resting_blood_pressure       int64
+cholesterol                  int64
+fasting_blood_sugar         object
+rest_ecg                    object
+max_heart_rate_achieved      int64
+exercise_induced_angina     object
+st_depression              float64
+st_slope                    object
+num_major_vessels            int64
+thalassemia                 object
+
+

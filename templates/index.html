@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Avaliação de Doença Cardíaca</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./static/style.css">
+</head>
+
+<div>
+    <div class="container">
+        <h1>Previsão de Doença Cardíaca</h1>
+        {% if result %}
+        <img style="float: left;" src="https://guardian.ng/wp-content/uploads/2016/08/Heart-diseases.jpg" width="300px"/>
+        <h3>Resultado: {{result}}</h3>
+        {% if probabilidade %}
+        <h5>Probabilidade: {{probabilidade}}%</h5>
+        {% endif %}
+        <h5>Obs.: {{msg}}</h5>
+        <a href="/">Prever novo paciente</a>
+        {% endif %}
+        {% if result == None %}
+        <img style="float: left;" src="https://guardian.ng/wp-content/uploads/2016/08/Heart-diseases.jpg" width="200px"/>
+        <form action = "/verificar" method = "POST">
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col">
+                        <label>Idade *</label>
+                        <input type="text" class="form-control form-control-sm" name="new_heart" placeholder="Idade - Exemplo: 40" required>
+                    </div>
+                    <div class="col">
+                        <label>Sexo *</label>
+                        <select class="form-control form-control-sm" name="new_heart" required>
+                            <option value="0">Feminino</option>
+                            <option value="1">Masculino</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label>Dor no Peito *</label>
+                        <select class="form-control form-control-sm" name="new_heart" required>
+                            <option value="1">Angina Típica</option>
+                            <option value="2">Angina Atípica</option>
+                            <option value="3">Dor não anginosa</option>
+                            <option value="4">Assintomática</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col">
+                        <label>Pressão Arterial em repouso (mm Hg) *</label>
+                        <input type="text" class="form-control form-control-sm" name="new_heart" placeholder="Pressão Arterial mmHg - Exemplo: 128" required>
+                    </div>
+                    <div class="col">
+                        <label>Colesterol em mg/dl *</label>
+                        <input type="text" class="form-control form-control-sm" name="new_heart" placeholder="Colesterol mg/dl - Exemplo: 200" required>
+                    </div>
+                    <div class="col">
+                        <label>Glicemia em jejum *</label>
+                        <select class="form-control form-control-sm" name="new_heart" required>
+                            <option value="0">Menor que 120 mg/dl</option>
+                            <option value="1">Maior que 120 mg/dl</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col">
+                        <label>Eletrocardiograma em repouso *</label>
+                        <select class="form-control form-control-sm" name="new_heart" required>
+                            <option value="0">Normal</option>
+                            <option value="1">Anormalidade da onda ST-T</option>
+                            <option value="2">Hipertrofia ventricular esquerda provável ou definitiva</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label>Máxima Frequência Cardíaca por minuto *</label>
+                        <input type="text" class="form-control form-control-sm" name="new_heart" placeholder="Máx Freq Cardíaca - Exemplo: 148" required>
+                    </div>
+                    <div class="col">
+                        <label>Angina induzida por exercício</label>
+                        <select class="form-control form-control-sm" name="new_heart" required>
+                            <option value="0">Não</option>
+                            <option value="1">Sim</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col">
+                        <label>Depressão de ST induzida por exercício em relação ao repouso *</label>
+                        <input type="text" class="form-control form-control-sm" name="new_heart" placeholder="Depressão de ST - Exemplo: 2.3" required>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col">
+                        <label>Inclinação do segmento ST de pico em exercício *</label>
+                        <select class="form-control form-control-sm" name="new_heart" required>
+                            <option value="1">Inclinação para cima</option>
+                            <option value="2">Plana</option>
+                            <option value="3">Inclinação para baixo</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label>Número dos Principais vasos sanguíneos do coração *</label>
+                        <select class="form-control form-control-sm" name="new_heart" required>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label>Doença sanguínea chamada de thalassemia *</label>
+                        <select class="form-control form-control-sm" name="new_heart" required>
+                            <option value="1">Normal</option>
+                            <option value="2">Defeito Fixo</option>
+                            <option value="3">Defeito Reversível</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Verificar</button>
+        </form>
+        {% endif %}
+    </div>
+    </body>
+
+</html>
