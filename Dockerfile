@@ -20,7 +20,10 @@ ENV LC_ALL=en_US.utf8 \
 
 RUN chmod 777 $APP_HOME
 
-EXPOSE 5000:5000
+EXPOSE 5000
+ENV FLASK_APP=app.py
+ENV FLASK_ENV=development
 
-ENTRYPOINT ["/bin/sh", "start.sh"]
+ENTRYPOINT [ "flask"]
+CMD [ "run", "--host", "0.0.0.0" ]
 
