@@ -31,10 +31,10 @@ def verificar():
     prob = "%.2f" % (float(result.get('probabilidade')) * 100.0)
     result = int(result.get('resultado'))
     if (result == 0):
-    	result = 'Não há índicios de doença'
+    	result = 'Não há indícios de doença'
     	prob = None
     else:
-    	result = 'Encontrado índicios de doença'
+    	result = 'Encontrado indícios de doença'
     mensagem = "Atenção, esse resultado é uma previsão, sempre procure um médico cardiologista."
     
     return render_template('index.html', result = result, probabilidade=prob, msg=mensagem)
